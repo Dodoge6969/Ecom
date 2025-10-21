@@ -1,0 +1,1171 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    
+  font-family: "Playfair Display", serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal;
+
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.parent {
+display: grid;
+grid-template-columns: repeat(5, 1fr);
+grid-template-rows: repeat(5, 1fr);
+grid-column-gap: 0px;
+grid-row-gap: 0px;
+
+}
+
+.div1 {
+     width: 100%; height: 100px; grid-area: 1 / 1 / 2 / 2;
+     } 
+.div2 {
+  position: fixed;
+  top: 0;
+  left: 50%;             /* ✅ move to horizontal center */
+  transform: translateX(-50%); /* ✅ shift back by half its width */
+  height: 100px;
+  width: auto;
+  z-index: 1700; /* must be above the open menu */
+}
+
+
+
+/* end */
+
+
+
+.main {
+  width: 100%;
+  height: 100vh;
+
+  /* remove the negative margin so navbar doesn't cover the content */
+  margin-top: 0;
+  padding-top: 100px;
+
+  background-color: #F4F4F4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background: 
+    linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.3)),
+    url('src/mainbg.jfif') center/cover no-repeat;
+
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed; /* ✨ keeps image static when scrolling */
+}
+
+
+.main h2{
+      opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInUp 1s ease forwards;
+  animation-delay: .5s;
+  line-height: 1.8; 
+  font-size: 30px;
+  
+}
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.main h1{
+      opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInUp 1s ease forwards;
+  animation-delay: 1s;
+  line-height: 1.8; 
+    font-size: 50px;
+      font-family: "Playfair Display", serif;
+  
+}
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.main button{
+      opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInUp 1s ease forwards;
+  animation-delay: 1.5s;
+  
+  
+}
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.main button {
+ outline: none;
+ cursor: pointer;
+ border: none;
+ padding: 0.9rem 2rem;
+ margin: 0;
+ font-family: inherit;
+ font-size: inherit;
+ position: relative;
+ display: inline-block;
+ letter-spacing: 0.05rem;
+ font-weight: 700;
+ font-size: 17px;
+ border-radius: 500px;
+ overflow: hidden;
+ background: #000000;
+ color: rgb(0, 0, 0);
+}
+
+.main button span {
+ position: relative;
+ z-index: 10;
+ transition: color 0.4s;
+}
+
+.main button:hover span {
+ color: rgb(255, 255, 255);
+}
+
+.main button::before,
+.main button::after {
+ position: absolute;
+ top: 0;
+ left: 0;
+ width: 100%;
+ height: 100%;
+ z-index: 0;
+}
+
+.main button::before {
+ content: "";
+ background: #ffffff;
+ width: 120%;
+ left: -10%;
+ transform: skew(30deg);
+ transition: transform 0.4s cubic-bezier(0.3, 1, 0.8, 1);
+}
+
+.main button:hover::before {
+ transform: translate3d(100%, 0, 0);
+}
+
+
+
+/* smooth transitions for navbar elements */
+
+/* default logo transition */
+.div2 img {
+  transition: height 0.25s ease, transform 0.25s ease;
+  height: 100px;
+  width: auto;
+
+}
+
+.ndsection {
+  height: 100vh;
+  width: 100%;
+}
+
+
+.parent1 {
+  display: grid;
+  width: 100%;
+  height: 100%;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: 10% 20% 60% 10%; /* only 4 rows */
+  grid-column-gap: 0;
+  grid-row-gap: 0;
+}
+
+.div11 {
+  grid-area: 1 / 1 / 2 / 6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #fdfdfd;
+}
+
+/* NEW SEARCH BAR DESIGN */
+.searchbar {
+  display: flex;
+  align-items: center;
+  border-bottom: 2px solid #6b838d;
+  width: 50%;
+  transition: all 0.3s ease;
+}
+
+.searchbar input {
+  flex: 1;
+  padding: 10px;
+  border: none;
+  outline: none;
+
+  font-size: 16px;
+  color: #333;
+  background: transparent;
+}
+
+.searchbar input::placeholder {
+  color: #aaa;
+}
+
+.searchbar button {
+  border: none;
+  background: none;
+  cursor: pointer;
+  color: #036ec1;
+  font-size: 18px;
+  padding: 8px 10px;
+  transition: color 0.3s ease;
+}
+
+.searchbar button:hover {
+  color: #036ec1;
+}
+
+/* Focus effect */
+.searchbar:focus-within {
+  border-bottom-color: #036ec1;
+  width: 55%;
+}
+
+.div21 {
+  grid-area: 2 / 2 / 3 / 5;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: #fdfdfd;
+  padding: 20px;
+}
+
+.div21 h1 {
+  font-size: 3em;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+
+.property-list {
+  font-size: 0.9em;
+  color: #666;
+}
+
+.property-list a {
+  text-decoration: none;
+  color: #aaaaaa;
+  margin: 0 6px;
+  transition: color 0.3s ease, font-size 0.3s ease, transform 0.3s ease;
+  font-size: medium;
+  
+}
+
+.property-list a:hover {
+  color: #444444;
+  font-size: larger;
+  transform: scale(1.1); /* gentle zoom effect */
+}
+
+
+
+/* 3rd section */
+.div31 {
+  grid-area: 3 / 1 / 4 / 6;
+
+}
+
+/* Bottom left */
+.div41 {
+  grid-area: 4 / 1 / 5 / 2; /* ✅ last valid row */
+
+}
+.view-all {
+  text-decoration: none;    /* removes underline */
+  color: inherit;           /* matches your existing font color */
+  font-weight: 500;         /* slightly bolder for visibility */
+  cursor: pointer;
+}
+
+
+/* Bottom right */
+.div51 {
+  grid-area: 4 / 5 / 5 / 6; /* ✅ stays on same last row */
+
+}
+.rdsec{
+  height: 100vh;
+  width: 100%;
+
+
+}
+.parent2 {
+  display: grid;
+  grid-template-columns: 45% 55%; /* left and right split */
+    grid-template-rows: 20% 65% 15%; 
+  width: 100vw;
+  height: 100vh;
+}
+
+.div311 {
+  grid-area: 1 / 1 / 2 / 3;
+
+  display: flex;
+  flex-direction: column;   /* stack h1 and p vertically */
+  justify-content: center;  /* center vertically */
+  align-items: center;      /* center horizontally */
+  text-align: center;
+  gap: 10px;                /* space between h1 and p */
+}
+
+
+
+.div321 {
+  grid-area: 2 / 1 / 3 / 2;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  position: relative;
+
+}
+
+.div321::before {
+  content: "";
+  position: absolute;
+  width: 450px;
+  height: 450px;
+  border-radius: 50%;
+  background-color: #007bff;
+  z-index: 0;
+  transform: translate(40px, -40px); /* moves circle top-right */
+}
+
+.div321 img {
+  width: 450px;
+  height: 450px;
+  object-fit: cover;
+  border-radius: 50%;
+  position: relative;
+  z-index: 1;
+  transform: translate(-40px, 40px); /* moves image bottom-left */
+}
+
+
+
+
+.div331 {
+  grid-area: 2 / 2 / 3 / 2;
+
+  display: flex;
+
+  align-items: center;      /* center vertically */
+}
+
+.text1 {
+ 
+  display: flex;
+  flex-direction: column;
+  justify-content: center;  /* center text vertically */
+    /* center text horizontally */
+  transform: translateY(50%); /* move text slightly lower */
+  margin-left: 40px;
+    line-height: 2;   
+}
+.text1 h2{
+  font-size: 60px;
+}
+.text1 h3{
+  font-size: 20px;
+}
+.text1 h4{
+  color: gray;
+}
+.text1 p{
+  color: rgb(0, 0, 0);
+  font-style: italic;
+  font-size: 30px;
+}
+
+
+
+
+
+
+.div341 {
+  grid-area: 3 / 1 / 4 / 2; /* third row, first column */
+
+  display: flex;              /* enables flexbox */
+  justify-content: center;    /* centers image horizontally */
+  align-items: center;        /* centers image vertically */
+}
+
+
+.div341 img {
+  width: 30%;
+  height: 600%;
+  object-fit: contain;        /* keeps aspect ratio */
+}
+
+.sold{
+  height: 130vh;
+  width: 100%;
+  background-color: #036ec1;
+}
+.parent4 {
+  display: grid;
+  grid-template-rows: repeat(3, 1fr);
+  width: 100%;
+  height: 100%;
+}
+
+.div411 { background-color: #293B5F; }
+.div421 { background-color: #223861; }
+.div431 { background-color: #1E3054; }
+
+.parentch1 {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  height: 100%;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  align-items: center;
+  color: #ffffff;
+}
+
+.chi2 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  width: 100%;
+}
+
+.chi2 h3, .chi2 h4,
+.chi1 h3, .chi1 h4 {
+  margin: 5px 0;
+  line-height: 1.8;
+}
+
+.parentch1 img {
+  height: 80%;
+  width: 90%;
+  object-fit: cover;
+}
+
+.thsec {
+  height: 60vh;
+  width: 100%;
+  background-image: url('src/hi.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+
+
+  
+/* ORIGINAL GRID LAYOUT (restored) */
+.parent5 {
+  display: grid;
+  grid-template-columns: 20% 20% 20%; /* original 3 equal columns */
+  grid-template-rows: 10% 60%;         /* header row + content row */
+  width: 100vw;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+    justify-content: center;  /* centers the 3 columns horizontally in the parent */
+  align-content: center;
+  gap: 20px;
+  text-align: justify;
+}
+
+/* header spanning the 3 columns */
+.div511 {
+  grid-area: 1 / 1 / 2 / 4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 8px 12px;
+}
+
+/* three service boxes placed in second row (original positions) */
+.div521 { grid-area: 2 / 1 / 3 / 2; }
+.div531 { grid-area: 2 / 2 / 3 / 3; }
+.div541 { grid-area: 2 / 3 / 3 / 4; }
+
+/* keep icon, h3, h4 stacked vertically and centered */
+.div521, .div531, .div541 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;      /* centers horizontally */
+  justify-content: center;  /* centers vertically */
+  text-align: center;       /* centers text */
+  padding: 16px;
+  box-sizing: border-box;
+  border: none;
+  background: white;
+  height: 100%;             /* make sure they have height */
+  width: 100%;              /* optional depending on layout */
+}
+
+
+/* icon style (can be adjusted) */
+.div521 i, .div531 i, .div541 i {
+  font-size: 32px;
+  margin-bottom: 8px;
+}
+
+/* headings and paragraph spacing */
+.div521 h3, .div531 h3, .div541 h3 {
+  margin: 6px 0 4px;
+  font-size: 1.05rem;
+}
+.div521 h4, .div531 h4, .div541 h4 {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.4;
+  color: #555;
+  max-width: 320px; /* keeps the copy readable */
+}
+
+.thsec2 {
+  height: 30vh;
+  width: 100%;
+  background-color: white;
+
+  display: flex;
+  justify-content: center; /* center horizontally */
+  align-items: center;     /* center vertically */
+}
+
+.div661 {
+
+  width: 100vw;
+  height: 30%;
+  margin-top: 0;
+  display: grid;
+  grid-template-columns: 8% 8% 8% 8%; 
+  justify-content: center;
+  column-gap: 10%; /* closer spacing */
+  align-content: center;
+}
+
+.parent6111{
+grid-area: 1/1/2/2;
+
+
+}
+.parent6211{
+  grid-area: 1/2/2/3;
+
+}
+.parent6311{
+  grid-area: 1/3/2/4;
+
+}
+.parent6411{
+  grid-area: 1/4/2/5;
+}
+.tt{
+  height: 50vh;
+  width: 100%;
+  background-color: red;
+}
+.parent711{
+  width: 100%;
+  height: 100%;
+}
+.parent711 iframe{
+width: 100%;
+height: 100%;
+
+}
+
+.parent991{
+  width: 100%;
+  height: 30vh;
+  background-color: #12161d;
+}
+.div991{
+  display: grid;
+  grid-template-columns: 5% 5% 5% 5%;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+    column-gap: 0.2%;
+}
+.div9966{
+  grid-area: 1 /1 / 2/ 2;
+  display: flex;              /* enables flexbox */
+  justify-content: center;    /* centers horizontally */
+  align-items: center;    
+    filter: brightness(0) invert(1);
+}
+.div9967{
+  grid-area: 1 /2 / 2/ 3;
+  display: flex;              /* enables flexbox */
+  justify-content: center;    /* centers horizontally */
+  align-items: center;    
+    filter: brightness(0) invert(1);
+}
+.div9968{
+  grid-area: 1 /3 / 2/ 4;
+  display: flex;              /* enables flexbox */
+  justify-content: center;    /* centers horizontally */
+  align-items: center;    
+    filter: brightness(0) invert(1);
+}
+.div9969{
+  grid-area: 1 /4 / 2/ 5;
+  display: flex;              /* enables flexbox */
+  justify-content: center;    /* centers horizontally */
+  align-items: center;    
+    filter: brightness(0) invert(1);
+}
+.parent1000{
+  width: 100%;
+  height: 90vh;
+  background-color: #ebebeb;
+  display: grid;
+  grid-template-columns: 30% 25%;
+  grid-template-rows: 15% 65%; 
+  gap: 70px;
+    justify-content: center; /* center horizontally */
+  align-items: center; 
+  
+}
+.div1001 {
+  grid-area: 1 / 1 / 2 / 3;
+
+  height: 100%;
+
+  display: flex;              /* enable flexbox */
+  justify-content: center;    /* center horizontally */
+  align-items: center;        /* center vertically */
+  text-align: center;         /* center text alignment (optional) */
+  font-size: 25px;
+  color: rgb(39, 137, 170) ;
+}
+
+.div1002{
+  grid-area: 2 / 1 / 3 / 2;
+
+  height: 100%;
+}
+.div1002 {
+  display: flex;
+  flex-direction: column;     /* stack items vertically */
+  justify-content: space-evenly; /* even vertical spacing */
+  height: 100%;               /* make it fill parent height */         /* optional: center text horizontally */
+
+  padding: 20px;
+  border-radius: 10px;
+
+}
+.div1002 h3 {
+  font-size: 25px;
+
+}
+
+/* optional styling for text */
+.div1002 h3, 
+.div1002 h4, 
+.div1002 h5 {
+  margin: 0;  /* remove default spacing to keep even layout */
+  color: #000;
+}
+
+/* select styling */
+.div1002 select {
+  background-color: transparent;
+  border: none;
+  font-size: 16px;
+  color: #000;
+  outline: none;
+}
+
+.div1003 {
+  position: relative;
+  padding: 40px;
+  height: 100%;
+  background-color: #e0e0e0;
+  border-radius: 20px;
+  box-shadow: 10px 10px 5px lightblue;
+  
+}
+
+/* form title styling */
+.form-title {
+  text-align: center;
+  width: 100%;
+  font-size: 24px;
+  margin-bottom: 15px;
+  color: #000;
+}
+
+/* input + textarea styling */
+.div1003 input,
+.div1003 textarea {
+  width: 100%;
+  border: none;
+  border-bottom: 2px solid #000;
+  outline: none;
+  background: transparent;
+  padding: 8px 0;
+  font-size: 16px;
+  color: #000;
+  margin-bottom: 20px; /* vertical spacing between fields */
+}
+
+.div1003 input:focus,
+.div1003 textarea:focus {
+  border-bottom-color: #036ec1;
+}
+
+/* label spacing (optional) */
+.div1003 label {
+  display: block;
+  margin-bottom: 8px;
+}
+
+/* center the button */
+.div1003 button {
+  display: block;
+  margin: 20px auto 0; /* top margin, auto left/right to center */
+  padding: 20px 30px;
+  border: none;
+  background-color: black;
+  color: #fff;
+  font-size: 16px;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.div1003 button:hover {
+  background-color: lightblue;
+  color: black;
+}
+.fp {
+  height: 60vh;
+  width: 100%;
+  background-image: url('src/bruh.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.op {
+  display: grid;
+  grid-template-columns: 90%;
+  grid-template-rows: 10% 70%;
+  width: 65%;               /* smaller box in the middle */
+  height: 80%;              /* adjust as needed */
+
+  border-radius: 10px;
+    justify-content: center;
+      align-content: center;
+      gap: 40px;
+      text-align: left;
+      color: #000;
+}
+
+.op1, .op2 {
+
+  width: 100%;
+  height: 100%;
+}
+
+.op1 {
+  grid-area: 1 / 1 / 2 / 2;
+}
+
+.op2 {
+  grid-area: 2 / 1 / 3 / 2;
+backdrop-filter: blur(60px);
+background-color: rgba(225, 225, 225, 0.3);
+  border-radius: 10px;
+}
+.op21{
+    display: grid;
+  grid-template-columns: 30% 30% 30%;
+  grid-template-rows: 20% 70%;
+  height: 100%;
+  width: 100%;
+    justify-content: center;
+  align-items: center;
+}
+.op22 {
+  grid-area: 1 / 1 / 2 / 2;
+ 
+  height: 100%;
+  width: 100%;
+
+
+  display: flex;
+
+  align-items: center;     /* center vertically */
+}
+
+.op23 {
+  grid-area: 2 / 1 / 3 / 2;
+
+  height: 100%;
+  width: 100%;
+  padding: 20px;
+
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  box-sizing: border-box;
+}
+
+.op23 .form-group {
+  display: flex;
+  flex-direction: column; /* label on top of select */
+}
+
+.op23 .form-group.full {
+  width: 100%; /* first select = full width */
+}
+
+.op23 .form-group.half {
+  width: calc(50% - 10px); /* two selects side by side */
+}
+
+/* optional visual styling */
+.op23 label {
+  margin-bottom: 8px;
+  font-weight: bold;
+  color: #000;
+}
+
+.op23 select {
+  width: 100%;
+  padding: 8px;
+  font-size: 14px;
+
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+
+.op24 {
+  grid-area: 2 / 2 / 3 / 3;
+
+  height: 100%;
+  width: 100%;
+  padding: 20px;
+
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  box-sizing: border-box;
+}
+
+.op24 .form-group {
+  display: flex;
+  flex-direction: column; /* label above input */
+}
+
+.op24 .form-group.full {
+  width: 100%; /* full width for select */
+}
+
+.op24 .form-group.half {
+  width: calc(50% - 10px); /* side-by-side inputs */
+}
+
+/* optional styling for clean look */
+.op24 label {
+  margin-bottom: 6px;
+  font-weight: bold;
+  color: #000;
+}
+
+.op24 select,
+.op24 input {
+  width: 100%;
+  padding: 8px;
+  font-size: 14px;
+
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.op25 {
+  grid-area: 2 / 3 / 3 / 4;
+
+  height: 100%;
+  width: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+
+  display: flex;
+  flex-direction: column;  /* stack vertically */
+  align-items: flex-start; /* text and elements align left */
+  justify-content: flex-start; /* start from top */
+  gap: 20px; /* spacing between elements */
+  text-align: left; /* ensure text aligns left */
+  background-color: transparent;
+}
+
+/* Keep consistency with form-group structure */
+.op25 .form-group {
+  display: flex;
+  flex-direction: column; /* label above input/select/button */
+  width: 100%;
+}
+
+/* Matching full/half layout behavior */
+.op25 .form-group.full {
+  width: 100%;
+}
+
+.op25 .form-group.half {
+  width: calc(50% - 10px);
+}
+
+/* Labels match others */
+.op25 label {
+  margin-bottom: 6px;
+  font-weight: bold;
+  color: #000;
+}
+
+/* Inputs/selects consistent with .op24 */
+.op25 select,
+.op25 input {
+  width: 100%;
+  padding: 8px;
+  font-size: 14px;
+
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+/* Buttons consistent with .op24 */
+.op25 button {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 5px;
+
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.op25 button:hover {
+  background-color: #0056b3;
+}
+
+
+
+.footer{
+	background: #0d1117;
+	box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
+	box-sizing: border-box;
+	width: 100%;
+	text-align: left;
+	padding: 55px 50px;
+  color:#fff!important;
+}
+
+.footer .footer-left,
+.footer .footer-center,
+.footer .footer-right{
+	display: inline-block;
+	vertical-align: top;
+}
+
+/* Footer left */
+
+.footer .footer-left{
+	width: 40%;
+}
+
+
+.footer h3{
+	color:  #ffffff;
+
+	margin: 0;
+}
+
+.footer h3 span{
+	color:  teal;
+}
+
+/* Footer links */
+
+.footer .footer-links{
+	color:  #ffffff;
+	margin: 20px 0 12px;
+	padding: 0;
+}
+
+.footer .footer-links a{
+	display:inline-block;
+	line-height: 1.8;
+  font-weight:400;
+	text-decoration: none;
+	color:  inherit;
+}
+
+.footer .footer-name{
+  color: teal;
+	font-size: 14px;
+	font-weight: normal;
+	margin: 0;
+}
+
+/* Footer Center */
+
+.footer .footer-center{
+	width: 35%;
+}
+
+.footer .footer-center i{
+	background-color:  #33383b;
+	color: #ffffff;
+	font-size: 25px;
+	width: 38px;
+	height: 38px;
+	border-radius: 50%;
+	text-align: center;
+	line-height: 42px;
+	margin: 10px 15px;
+	vertical-align: middle;
+}
+
+.footer .footer-center i.fa-envelope{
+	font-size: 17px;
+	line-height: 38px;
+}
+
+.footer .footer-center p{
+	display: inline-block;
+	color: #ffffff;
+  font-weight:400;
+	vertical-align: middle;
+	margin:0;
+}
+
+.footer .footer-center p span{
+	display:block;
+	font-weight: normal;
+	font-size:14px;
+	line-height:2;
+}
+
+.footer .footer-center p a{
+	color:  teal;
+	text-decoration: none;;
+}
+
+.footer .footer-links a:before {
+  content: "|";
+  font-weight:300;
+  font-size: 20px;
+  left: 0;
+  color: #fff;
+  display: inline-block;
+  padding-right: 5px;
+}
+
+.footer .footer-links .link-1:before {
+  content: none;
+}
+
+/* Footer Right */
+
+.footer .footer-right{
+	width: 20%;
+}
+
+.footer .footer-about{
+	line-height: 20px;
+	color:  #92999f;
+	font-size: 13px;
+	font-weight: normal;
+	margin: 0;
+}
+
+.footer .footer-about span{
+	display: block;
+	color:  #ffffff;
+	font-size: 14px;
+	font-weight: bold;
+	margin-bottom: 20px;
+}
+
+.footer .footer-socials{
+	margin-top: 25px;
+}
+
+.footer .footer-socials a{
+	display: inline-block;
+	font-size: 35px;
+	cursor: pointer;
+	color: #ffffff;
+	text-align: center;
+	line-height: 35px;
+	margin-right: 5px;
+	margin-bottom: 5px;
+}
+
+.footer .logo {
+    max-width: 100px;
+    height: 100%;
+    width: 100%;
+    border-radius: 50%; 
+    margin-bottom: 15px;
+        filter: brightness(0) invert(1);
+}
+
+
+@media (max-width: 800px) {
+
+	.footer{
+		font: bold 14px sans-serif;
+	}
+
+	.footer .footer-left,
+	.footer .footer-center,
+	.footer .footer-right{
+		display: block;
+		width: 100%;
+		margin-bottom: 40px;
+		text-align: center;
+	}
+
+	.footer .footer-center i{
+		margin-left: 0;
+	}
+
+}

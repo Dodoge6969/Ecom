@@ -1,0 +1,275 @@
+.Navbar{
+  position: sticky;
+  top: 0;
+  width: 100%;
+  height: 100px;
+  z-index: 1000;
+  transition: background-color 0.25s ease, height 0.25s ease, padding 0.25s ease;
+  background-color: rgba(180,197,228,0.5);
+  margin-top: -100px;
+} 
+.div1 {
+  width: 100%;
+  height: 100px;
+  grid-area: 1 / 1 / 2 / 2;
+} 
+/* keep logo centered and above menu */
+.div2 {
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 100px;
+  width: auto;
+  z-index: 2000; /* higher than menu box */
+}
+.div2 img {
+  position: relative;
+  z-index: 2001;
+  pointer-events: none;
+}
+
+/* hidden native checkbox (still accessible) */
+#menu__toggle {
+  opacity: 0;
+  position: absolute;
+  left: -9999px;
+}
+
+/* hamburger button */
+.menu__btn {
+  position: fixed;
+  top: 40px;
+  left: 20px;
+  width: 26px;
+  height: 26px;
+  cursor: pointer;
+  z-index: 2100; /* highest so it's always visible/clickable */
+  transition: top 0.25s ease, transform 0.25s ease;
+}
+
+/* hamburger bars */
+.menu__btn > span,
+.menu__btn > span::before,
+.menu__btn > span::after {
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background-color: #222;
+  transition: transform .25s ease, top .25s ease, opacity .25s ease;
+}
+.menu__btn > span::before {
+  content: '';
+  top: -8px;
+}
+.menu__btn > span::after {
+  content: '';
+  top: 8px;
+}
+
+/* transform to X when checked */
+#menu__toggle:checked + .menu__btn > span {
+  transform: rotate(45deg);
+}
+#menu__toggle:checked + .menu__btn > span::before {
+  top: 0;
+  transform: rotate(-90deg);
+}
+#menu__toggle:checked + .menu__btn > span::after {
+  top: 0;
+  opacity: 0;
+}
+
+/* slide-in menu box */
+.menu__box {
+  display: flex;
+  position: fixed;
+  top: 0;
+  left: -100%;
+  width: 95%;
+  height: 100vh;      /* full viewport height so it won't be cut */
+  margin: 0;
+  padding: 80px 0;
+  list-style: none;
+backdrop-filter: blur(10px);
+background-color: rgba(225, 225, 225, 0.5);
+  transition: left .45s ease;
+  overflow: hidden;
+  z-index: 2000;      /* above page content but below logo/button if needed */
+}
+
+/* opened state */
+#menu__toggle:checked ~ .menu__box {
+  left: 0;
+}
+
+/* left pane */
+.menu__left {
+  width: 35%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding-left: 40px;
+  border-right: 1px solid black;
+  height: 80vh;
+}
+
+/* items */
+.menu__item {
+  display: block;
+  padding: 32px 24px;
+  color: #000000;
+  font-size: 20px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background-color .25s ease;
+  max-width: 435px;
+}
+.menu__item:hover { background-color: #036ec1; }
+
+/* right pane / carousel */
+.menu__right {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  text-align: center;
+  padding: 20px;
+
+  width: 100%;
+}
+.menu__right h1 {
+  font-size: 50px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: #333;
+  align-self: flex-start;
+}
+
+/* carousel basics (kept from your file) */
+.carousel {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  position: relative;
+ 
+  padding: 50px 0;
+}
+
+.carousel-track {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 60px;
+}
+
+.slide {
+  position: absolute;
+  transition: transform 1s ease, opacity 1s ease;
+  text-align: center;
+}
+
+.slide img {
+  width: 550px;
+  height: 300px;
+  border-radius: 12px;
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.25);
+  object-fit: cover;
+
+}
+
+/* text hidden by default */
+.slide h4,
+.slide h6 {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.slide.active h4,
+.slide.active h6 {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.slide h4 {
+  margin-top: 15px;
+  font-size: 20px;
+  font-weight: 600;
+  color: #2b2b2b;
+}
+
+.slide h6 {
+  font-size: 15px;
+  font-weight: 400;
+  color: #444444;
+  max-width: 500px;
+  margin: 5px auto 0;
+  line-height: 1.4;
+}
+
+
+/* scrolled state — apply only when menu is NOT open */
+.Navbar.scrolled:not(.menu-open) {
+  background-color: rgba(0,0,0,0.6);
+  height: 70px;
+  backdrop-filter: blur(4px);
+}
+.Navbar.scrolled:not(.menu-open) .div2 img {
+  filter: brightness(0) invert(1);
+  height: 60px;
+  transform: translateY(4px);
+}
+.Navbar.scrolled:not(.menu-open) .menu__btn {
+  top: 30px;
+  
+}
+.Navbar.scrolled:not(.menu-open) .menu__btn > span,
+.Navbar.scrolled:not(.menu-open) .menu__btn > span::before,
+.Navbar.scrolled:not(.menu-open) .menu__btn > span::after {
+  background-color: #fff;
+}
+
+/* optional: add a subtle shadow so the white bars are visible on light backgrounds */
+.Navbar.scrolled:not(.menu-open) .menu__btn {
+  filter: drop-shadow(0 1px 2px rgba(0,0,0,0.25));
+}
+
+/* when menu is open we keep button/logo above menu — already ensured by z-index values */
+
+/* hide navbar when class .hidden is applied */
+.Navbar.hidden {
+  transform: translateY(-120%);
+  transition: transform 0.28s ease;
+}
+
+/* ensure navbar remains visible when menu is open */
+.Navbar.menu-open.hidden {
+  transform: translateY(0);
+}
+
+/* End of consolidated nav styles */
+
+/* allow clicks to pass through the navbar except for the menu and logo */
+.Navbar {
+  pointer-events: none;
+}
+
+/* keep the interactive parts usable */
+.Navbar .menu__btn,
+.Navbar .menu__box,
+.div2,
+.div2 img {
+  pointer-events: auto;
+}
+
+/* remove baseline transform on Navbar (avoid creating a stacking context) */
+.Navbar {
+  /* remove any transform: translateY(0); if present */
+  transform: none; /* ensure no baseline transform that would clip fixed children */
+}
